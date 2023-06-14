@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="GymBeam\ProductProtein\Api\UpdateProteinAttributeValueInterface"
+                type="GymBeam\ProductProtein\Model\Command\UpdateProteinAttributeValue"/>
+    <preference for="GymBeam\ProductProtein\Api\Data\UpdateProteinValueResponseContainerInterface"
+                type="GymBeam\ProductProtein\Model\Data\UpdateProteinValueResponseContainer"/>
+    <virtualType name="GymBeam_ProductProtein_Logger_Handler" type="Magento\Framework\Logger\Handler\Base">
+        <arguments>
+            <argument name="fileName" xsi:type="string">var/log/product_protein.log</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="GymBeam_ProductProtein_Logger" type="Magento\Framework\Logger\Monolog">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="debug" xsi:type="object">GymBeam_ProductProtein_Logger_Handler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="GymBeam\ProductProtein\Model\Command\UpdateProteinAttributeValue">
+        <arguments>
+            <argument name="logger" xsi:type="object">GymBeam_ProductProtein_Logger</argument>
+        </arguments>
+    </type>
+</config>

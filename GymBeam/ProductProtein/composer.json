@@ -1,0 +1,24 @@
+{
+    "name": "gymbeam/module-product-protein",
+    "version": "1.0.0",
+    "description": "N/A",
+    "type": "magento2-module",
+    "require": {
+        "magento/module-product": "*",
+        "magento/module-webapi": "*",
+        "magento/module-store": "*",
+        "magento/module-eav": "*",
+        "php": "^7.4"
+    },
+    "license": [
+        "Proprietary"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "GymBeam\\ProductProtein\\": ""
+        }
+    }
+}
